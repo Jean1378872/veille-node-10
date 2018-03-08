@@ -6,7 +6,7 @@
 <section id="chat" style="display:none;">
 	<table id="list_user">
 		
-	</table style="text-align:left;">
+	</table style="text-align:left;table-layout: fixed;">
 	<div style="width:200px;height:300px;overflow-y: auto;background-color:grey;padding:20px;">
 	<table id="list_message" >
 		
@@ -64,15 +64,15 @@ Pour établir une communication socket il faut un premier appel de
  socket.on('diffuser_list_message', function(data){
  console.log('Envoyer ' + data[id] )
  let mChaine = ''
- for (id in data){
+ for (var i=0;i<1;i++){
  	mChaine += '<tr width:30px;>'
  			+ '<td style="font-size:9px;">' + data.user + '</td>'
- 			+ '<td>' + data.msg + '</td>'
+ 			+ '<td style="width:100px;">' + data.msg + '</td>'
  			+ '</tr>'
- }
+ 		}
  let elmListMsg = document.getElementById('list_message')
 
- elmListMsg.innerHTML = mChaine
+ elmListMsg.innerHTML += mChaine
 
  });
 
@@ -117,10 +117,10 @@ function affiche_table_user(data){
  function afficher_mon_message(data){
  	 console.log('afficher ' + data[id] )
 	 let mChaine = ''
-	 for (id in data){
+	 for (var i=0;i<1;i++){
 	 	mChaine += '<tr width:30px;>'
 	 			+ '<td style="font-size:9px;text-align:right;">' + data.user + '</td>'
-	 			+ '<td style="background-color:green;">' + data.msg + '</td>'
+	 			+ '<td style="background-color:green;width:100px;">' + data.msg + '</td>'
 	 			+ '</tr>'
 	 }
 	 let elmListMsg = document.getElementById('list_message')
